@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Heading = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div className=" container mx-auto mt-16 lg:h-full bg-cover 
     bg-[url('https://images.pexels.com/photos/1328486/pexels-photo-1328486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]">
@@ -9,7 +12,7 @@ const Heading = () => {
         <div>
           <h1 className='text-lg md:text-2xl mt-1 text-slate-50'>Put all your plans and projects in one place so you can work productively without the chaos and confusion.</h1>
         </div>
-        <Link to="/add-task">
+        <Link to={user?.uid ? "/add-task" : "/login"}>
           <button type="button" className="text-white bg-gradient-to-br from-orange-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 my-4 ">Get Started</button>
         </Link>
       </div>
