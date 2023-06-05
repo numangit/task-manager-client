@@ -41,12 +41,12 @@ const router = createBrowserRouter([
       {
         path: '/task-details/:id',
         element: <TaskDetails></TaskDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/myTask/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/myTasks/${params.id}`)
       },
       {
         path: '/my-tasks/edit/:id',
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:5000/myTask/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/myTasks/${params.id}`)
       }
     ]
   }
