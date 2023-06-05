@@ -15,7 +15,7 @@ const Update = () => {
   const handleAddTask = data => {
     // console.log(data)
     setLoading(true);
-    fetch(`http://localhost:5000/myTasks/${taskDetails._id}`, {
+    fetch(`https://task-manager-server-sandy.vercel.app/myTasks/${taskDetails._id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'

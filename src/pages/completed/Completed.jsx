@@ -19,7 +19,7 @@ const Completed = () => {
   const { data: myTasks = [], isLoading, refetch } = useQuery({
     queryKey: ['myTasks', user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/myTasks?email=${user?.email}`);
+      const res = await fetch(`https://task-manager-server-sandy.vercel.app/myTasks?email=${user?.email}`);
       const data = await res.json();
       // console.log(data)
       return data;
@@ -28,7 +28,7 @@ const Completed = () => {
 
   //function to delete task
   const handleDeleteTask = id => {
-    fetch(`http://localhost:5000/myTasks/${id}`, {
+    fetch(`https://task-manager-server-sandy.vercel.app/myTasks/${id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -49,7 +49,7 @@ const Completed = () => {
   //function to add note (in modal)
   const handleAddNote = data => {
     // console.log(data)
-    fetch(`http://localhost:5000/myTasks/note/${selectedTask._id}`, {
+    fetch(`https://task-manager-server-sandy.vercel.app/myTasks/note/${selectedTask._id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'

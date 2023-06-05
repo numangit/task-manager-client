@@ -16,7 +16,7 @@ const MyTask = () => {
   const { data: myTasks = [], isLoading, refetch } = useQuery({
     queryKey: ['myTasks', user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/myTasks?email=${user?.email}`);
+      const res = await fetch(`https://task-manager-server-sandy.vercel.app/myTasks?email=${user?.email}`);
       const data = await res.json();
       // console.log(data)
       return data;
@@ -26,7 +26,7 @@ const MyTask = () => {
   console.log(myTasks);
   //function to complete task
   const handleTaskComplete = (id) => {
-    fetch(`http://localhost:5000/myTasks/completed/${id}`, {
+    fetch(`https://task-manager-server-sandy.vercel.app/myTasks/completed/${id}`, {
       method: 'PUT',
     })
       .then(res => res.json())
@@ -40,7 +40,7 @@ const MyTask = () => {
 
   //function to delete task
   const handleDeleteTask = id => {
-    fetch(`http://localhost:5000/myTasks/${id}`, {
+    fetch(`https://task-manager-server-sandy.vercel.app/myTasks/${id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())

@@ -43,7 +43,7 @@ const AddTask = () => {
           }
           // console.log(taskDetails);
           // save task information to the database
-          fetch('http://localhost:5000/myTasks', {
+          fetch('https://task-manager-server-sandy.vercel.app/myTasks', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
