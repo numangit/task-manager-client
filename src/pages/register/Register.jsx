@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 const Register = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
@@ -30,7 +31,6 @@ const Register = () => {
         updateUser(userInfo)
           .then(() => {
             // console.log('Profile Updated');
-            toast.success('Welcome!');
             navigate(from, { replace: true });
           })
           .catch(error => {
@@ -98,9 +98,12 @@ const Register = () => {
             </div>
             {errors.password && <p className="text-red-500 text-sm" role="alert">{errors.password?.message}</p>}
           </div>
-          <input className='btn bg-black text-white rounded-md p-2 w-full mt-3' value="Register" type="submit" />
+          <input className='btn bg-orange-500 text-white rounded-md p-2 w-full mt-3' value="Register" type="submit" />
         </form>
-        <p className="text-sm mt-2 text-center">Already have an account? <Link className="underline" to="/login">Log in</Link></p>
+        <p className="text-sm mt-2 text-center">
+          Already have an account?
+          <Link className="underline" to="/login">Log in</Link>
+        </p>
       </div>
     </div>
   );
