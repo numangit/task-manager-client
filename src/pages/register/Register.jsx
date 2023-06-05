@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { toast } from "react-hot-toast";
 
 const Register = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
@@ -31,6 +32,7 @@ const Register = () => {
         updateUser(userInfo)
           .then(() => {
             // console.log('Profile Updated');
+            toast.success('Welcome!');
             navigate(from, { replace: true });
           })
           .catch(error => {
