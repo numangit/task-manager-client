@@ -75,8 +75,8 @@ const Completed = () => {
           <span className='text-amber-500 font-semibold'>Completed</span>
           {
             myTasks?.length > 0
-              ? " tasks."
-              : " task."
+              ? " tasks"
+              : " task"
           }
         </h1>
         {/* show loader  */}
